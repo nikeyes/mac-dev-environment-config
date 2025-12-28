@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+##? Add all files and then a commit
+#?? 1.0.0
+##?
+##? Usage:
+##?    git c             # A prompt appears askign for the commit message
+##?    git c <message>
+
+git add -A
+
+if [ -z "$1" ]; then
+  git commit
+else
+  git commit -m"$1"
+fi
+
+git push

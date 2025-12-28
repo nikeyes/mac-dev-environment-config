@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+##? Show a pretty git diff oriring/master using fzf (and copy selected path to the clipboard)
+#?? 1.0.0
+##?
+##? Usage:
+##?    pretty-diff-origin
+##? Based oin: https://github.com/CodelyTV/dotfiles/blob/f7f24f37ce011871e62348ad714c5c31eda3b2af/scripts/git/pretty-diff
+
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Not in a git repo!"
+    exit 0
+fi
+
+git -c color.status=always diff $(git branch --show-current) origin/$(git branch --show-current) --name-only |
+fzf --height 100% --ansi \
+    --preview '(git diff $(git branch --show-current) origin/$(git branch --show-current) --color=always -- {-1} | sed 1,4d)' \
+    --preview-window right:65% |
+#cut -c4- |
+#sed 's/.* -> //' |
+#tr -d '\n' |
+pbcopy

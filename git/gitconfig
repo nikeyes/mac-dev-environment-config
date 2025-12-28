@@ -1,0 +1,107 @@
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[push]
+	default = simple
+
+[commit]
+	verbose = true
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
+
+[core]
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes
+	editor = code --wait
+	autocrlf = input
+	trustctime = false
+	precomposeunicode = false
+	pager = delta --dark
+	ignorecase = false
+
+[help]
+	autocorrect = 1
+
+[diff]
+	tool = vscode
+	compactionHeuristic = true
+	indentHeuristic = true
+
+[difftool]
+	prompt = false
+
+[difftool "vscode"]
+    cmd = code --new-window --wait --diff $LOCAL $REMOTE
+
+[alias]
+	pd = pretty-diff
+	pdr = pretty-diff-remote
+	aa = "add -A"
+	s = "status -sb"
+	c = simple-commit
+	p = simple-push
+	ca = "!f() { git add --all && git commit --amend --no-edit }; f"
+	sm = "switch main"
+	
+[diff "json"]
+	textconv = python -m json.tool
+
+[merge] 
+	tool = vscode
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "vscode"]
+	cmd = code --wait --new-window $MERGED
+
+[log]
+	date = format:%F %R
+
+[credential]
+	helper = osxkeychain
+
+[color]
+	ui = always
+
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -1,0 +1,72 @@
+{
+    "explorer.confirmDelete": false,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.external.osxExec": "iTerm.app",
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "python.testing.pytestEnabled": true,
+    "workbench.list.openMode": "doubleClick",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "bash",
+            "args": [
+                "-l"
+            ],
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "/usr/local/bin/zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "window.zoomLevel": 1,
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "pylint.args": [
+        "--disable=C0111, C0330, C0415, E0213, R0201, R0901, R0903, R0913, R0915",
+        "--max-line-length=140",
+        "--good-names=i,j,k,e,x,y,_,pk,id,df",
+        "--max-args=5",
+        "--max-attributes=10",
+        "--max-bool-expr=5",
+        "--max-module-lines=250",
+        "--max-nested-blocks=2",
+        "--max-public-methods=5",
+        "--max-returns=5",
+        "--max-statements=35",
+        "--ignored-classes=contextlib.closing"
+    ],
+    "flake8.args": [
+        "--ignore=S101, S301, S301, S301, S301, S301, E142",
+        "--verbose",
+        "--max-line-length=140",
+        "--max-complexity=8",
+        "--show-source",
+        "--enable-extensions=G",
+        "--exclude=.git, .venv"
+    ],
+    "black-formatter.args": [
+        "--line-length=140",
+        "--skip-string-normalization"
+    ]
+}

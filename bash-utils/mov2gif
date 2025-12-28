@@ -1,0 +1,6 @@
+ #!/usr/bin/env bash
+set -euo pipefail
+ 
+ffmpeg -i "$1" "${1%.*}.gif" -pix_fmt rgb8 -r 10
+gifsicle -O3 "${1%.*}.gif" -o "${1%.*}.gif"
+osascript -e 'display notification "'"${1%.*}.gif successfully converted and saved"'" with title "MOV2GIF SUCCESS!"'
