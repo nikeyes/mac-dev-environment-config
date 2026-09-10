@@ -23,8 +23,26 @@
 	autocrlf = input
 	trustctime = false
 	precomposeunicode = false
-	pager = delta --dark
+	pager = delta
 	ignorecase = false
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+	line-numbers = true
+	side-by-side = true
+	file-style = bold yellow
+	file-decoration-style = yellow ul
+	hunk-header-style = syntax bold
+	hunk-header-decoration-style = yellow box
+	line-numbers-left-style = white
+	line-numbers-right-style = white
+	line-numbers-minus-style = bold red
+	line-numbers-plus-style = bold green
+	line-numbers-zero-style = white
 
 [help]
 	autocorrect = 1
@@ -53,8 +71,9 @@
 [diff "json"]
 	textconv = python -m json.tool
 
-[merge] 
+[merge]
 	tool = vscode
+	conflictstyle = zdiff3
 
 [mergetool]
 	keepBackup = false
@@ -68,23 +87,6 @@
 
 [credential]
 	helper = osxkeychain
-
-[color]
-	ui = always
-
-[color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
 
 [color "branch"]
 	current = yellow reverse
