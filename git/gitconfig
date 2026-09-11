@@ -68,9 +68,6 @@
 	ca = "!f() { git add --all && git commit --amend --no-edit }; f"
 	sm = "switch main"
 	
-[diff "json"]
-	textconv = python -m json.tool
-
 [merge]
 	tool = vscode
 	conflictstyle = zdiff3
