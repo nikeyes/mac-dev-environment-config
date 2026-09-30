@@ -3,6 +3,7 @@
     "git.detectWorktrees": true,
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.rightClickBehavior": "nothing",
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
